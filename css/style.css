@@ -1135,7 +1135,7 @@ section{ padding: var(--space-xl) 0; }
   .focus-grid{ grid-template-columns: repeat(2, 1fr) !important; }
   .coach__facts{ grid-template-columns: repeat(2, 1fr) !important; }
   .coach__inner{ grid-template-columns: 1fr; }
-  .coach__media{ order:-1; aspect-ratio: 16/9; }
+  .coach__media{ order:-1; aspect-ratio: 3/4; max-width: 280px; margin: 0 auto; }
   .community__inner{ grid-template-columns: 1fr; }
   .community__media{ order:-1; aspect-ratio: 16/9; }
   .community__media--split{ order:-1; aspect-ratio: 16/9; }
