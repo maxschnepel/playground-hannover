@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>On Tour · Playground Hockey Academy</title>
+<meta name="description" content="Playground kommt zu eurem Verein: individuelle Trainingstage, Schwerpunkttraining und Vereinsentwicklung für Vereine, Mannschaften und Trainer.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<!-- ============================= NAVIGATION ============================= -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html#top" class="nav__logo" aria-label="Zur Startseite von Playground Hannover">
+      <span class="nav__logo-text">
+        <span class="nav__logo-main">Playground</span>
+        <span class="nav__logo-sub">Hannover</span>
+      </span>
+      <svg class="nav__logo-mark" viewBox="-2 0 26 22" fill="none" aria-hidden="true">
+        <rect x="0" y="2" width="2.6" height="17" fill="currentColor"/>
+        <rect x="9.2" y="2" width="2.6" height="17" fill="currentColor"/>
+        <rect x="18.4" y="2" width="2.6" height="17" fill="currentColor"/>
+        <rect x="-2" y="19" width="25" height="3" fill="currentColor"/>
+      </svg>
+    </a>
+
+    <nav class="nav__links" id="navLinks" aria-label="Hauptnavigation">
+      <div class="nav__item nav__item--dropdown">
+        <a href="index.html#sportwelten">Sportwelten</a>
+        <div class="nav__dropdown">
+          <a href="hockey-academy.html">Hockey Academy</a>
+          <a href="padel.html">Padel</a>
+          <a href="soccer.html">Soccer</a>
+          <a href="kids-club.html">Kids Club</a>
+        </div>
+      </div>
+      <a href="index.html#community">Community</a>
+      <a href="index.html#termine">Highlights</a>
+      <a href="geschichte.html">Über uns</a>
+    </nav>
+
+    <a href="#anfrage" class="btn btn--nav">Jetzt anfragen</a>
+
+    <button class="nav__burger" id="navBurger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navMobile">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="nav__mobile" id="navMobile" aria-label="Mobile Navigation">
+    <a href="index.html#sportwelten">Sportwelten</a>
+    <div class="nav__mobile-sub">
+      <a href="hockey-academy.html">Hockey Academy</a>
+      <a href="padel.html">Padel</a>
+      <a href="soccer.html">Soccer</a>
+      <a href="kids-club.html">Kids Club</a>
+    </div>
+    <a href="index.html#community">Community</a>
+    <a href="index.html#termine">Highlights</a>
+    <a href="geschichte.html">Über uns</a>
+    <a href="#anfrage" class="btn btn--primary nav__mobile-cta">Jetzt anfragen</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============================= HERO ============================= -->
+  <!-- Platzhalterfoto (picsum.photos) — später durch eigenes Foto ersetzen. -->
+  <section class="story-hero">
+    <div class="story-hero__media" aria-hidden="true" style="background-image:url('https://picsum.photos/seed/playground-ontour-hero/1800/1000')"></div>
+    <!-- Eigenes Video: Dribbling-Training am DHC Hannover (Querformat). -->
+    <div class="media-video media-video--wide" aria-hidden="true">
+      <video class="media-video__player" autoplay muted loop playsinline poster="public/images/hockey/hero-academy-wide-poster.jpg">
+        <source src="public/videos/hockey/hero-academy-wide.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="story-hero__overlay"></div>
+    <div class="story-hero__content">
+      <p class="eyebrow eyebrow--light reveal">Hockey Academy · Angebot</p>
+      <h1 class="story-hero__title reveal">On Tour</h1>
+      <p class="story-hero__subline reveal">Playground kommt zu eurem Verein.</p>
+    </div>
+  </section>
+
+  <!-- ============================= ANGEBOTE FÜR ============================= -->
+  <section class="offers">
+    <div class="container">
+      <p class="eyebrow reveal">Angebote für</p>
+      <h2 class="section-title reveal">Für Vereine, Mannschaften und Trainer.</h2>
+      <div class="focus-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="sportwelt-card reveal">
+          <div class="sportwelt-card__media" style="background-image:url('https://picsum.photos/seed/playground-ontour-vereine/500/620')"></div>
+          <div class="sportwelt-card__overlay"></div>
+          <div class="sportwelt-card__content">
+            <h3 class="sportwelt-card__title">Vereine</h3>
+          </div>
+        </div>
+        <div class="sportwelt-card reveal">
+          <div class="sportwelt-card__media" style="background-image:url('https://picsum.photos/seed/playground-ontour-mannschaften/500/620')"></div>
+          <div class="sportwelt-card__overlay"></div>
+          <div class="sportwelt-card__content">
+            <h3 class="sportwelt-card__title">Mannschaften</h3>
+          </div>
+        </div>
+        <div class="sportwelt-card reveal">
+          <div class="sportwelt-card__media" style="background-image:url('https://picsum.photos/seed/playground-ontour-trainer/500/620')"></div>
+          <div class="sportwelt-card__overlay"></div>
+          <div class="sportwelt-card__content">
+            <h3 class="sportwelt-card__title">Trainer</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= SCHWERPUNKTE ============================= -->
+  <section class="coach">
+    <div class="container">
+      <p class="eyebrow reveal">Schwerpunkte</p>
+      <h2 class="section-title reveal">Das bringen wir mit.</h2>
+      <div class="coach__facts" style="max-width:900px; grid-template-columns:repeat(3,1fr);">
+        <div class="coach__fact reveal"><p class="coach__fact-text">Individuelle Trainingstage</p></div>
+        <div class="coach__fact reveal"><p class="coach__fact-text">Schwerpunkttraining</p></div>
+        <div class="coach__fact reveal"><p class="coach__fact-text">Techniktraining</p></div>
+        <div class="coach__fact reveal"><p class="coach__fact-text">Torwarttraining</p></div>
+        <div class="coach__fact reveal"><p class="coach__fact-text">Vereinsentwicklung</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= ANFRAGEFORMULAR ============================= -->
+  <!--
+    Statisches Formular ohne Backend: Absenden öffnet das E-Mail-Programm
+    mit vorausgefüllter Nachricht (mailto). Für eine echte Formularverar-
+    beitung später an einen Formular-/E-Mail-Dienst anbinden.
+  -->
+  <section class="why" id="anfrage">
+    <div class="container">
+      <p class="eyebrow reveal">Anfrage</p>
+      <h2 class="section-title reveal">Holt Playground zu euch.</h2>
+      <form class="request-form reveal" action="mailto:info@playgroundhannover.de" method="post" enctype="text/plain">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="verein">Verein / Organisation</label>
+            <input type="text" id="verein" name="Verein" required>
+          </div>
+          <div class="form-field">
+            <label for="ansprechpartner">Ansprechpartner</label>
+            <input type="text" id="ansprechpartner" name="Ansprechpartner" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="E-Mail" required>
+          </div>
+          <div class="form-field">
+            <label for="telefon">Telefon (optional)</label>
+            <input type="tel" id="telefon" name="Telefon">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="nachricht">Worum geht es?</label>
+          <textarea id="nachricht" name="Nachricht" placeholder="z. B. Mannschaft, gewünschter Zeitraum, Trainingsschwerpunkt ..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary" style="align-self:flex-start;">Jetzt anfragen</button>
+        <p class="form-note">Wir melden uns schnellstmöglich bei euch zurück.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <span class="nav__logo nav__logo--lg">
+        <span class="nav__logo-text">
+          <span class="nav__logo-main">Playground</span>
+          <span class="nav__logo-sub">Hannover</span>
+        </span>
+        <svg class="nav__logo-mark" viewBox="-2 0 26 22" fill="none" aria-hidden="true">
+          <rect x="0" y="2" width="2.6" height="17" fill="currentColor"/>
+          <rect x="9.2" y="2" width="2.6" height="17" fill="currentColor"/>
+          <rect x="18.4" y="2" width="2.6" height="17" fill="currentColor"/>
+          <rect x="-2" y="19" width="25" height="3" fill="currentColor"/>
+        </svg>
+      </span>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer__heading">Sportwelten</p>
+      <a href="hockey-academy.html">Hockey Academy</a>
+      <a href="padel.html">Padel</a>
+      <a href="soccer.html">Soccer</a>
+      <a href="kids-club.html">Kids Club</a>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer__heading">Playground</p>
+      <a href="index.html#community">Community</a>
+      <a href="geschichte.html">Über uns</a>
+      <a href="geschichte.html#vision">Vision</a>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer__heading">Kontakt</p>
+      <a href="mailto:info@playgroundhannover.de">info@playgroundhannover.de</a>
+      <a href="#">Instagram</a>
+      <a href="#">WhatsApp-Community</a>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <span>© 2026 Playground Hannover</span>
+    <span>Impressum · Datenschutz</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

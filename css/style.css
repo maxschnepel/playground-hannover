@@ -1,0 +1,1172 @@
+/* =====================================================================
+   PLAYGROUND HANNOVER — DESIGN TOKENS (Markenrichtung D)
+   Neutrale Farbwelt (Weiß / Grau / Schwarz) + Ink Blue als einziger,
+   zurückhaltender Akzent. Anlehnung an Nike x Apple x On Running.
+   ===================================================================== */
+:root{
+  --color-bg:        #FAFAFA;
+  --color-surface:   #F0F0F0;
+  --color-border:    #E5E5E5;
+  --color-grey:      #6E6E6E;
+  --color-ink:       #111111;
+  --color-white:     #FFFFFF;
+  --color-accent:    #2C3548;
+  --color-accent-ink:#1D2333;
+
+  --font-sans: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  --container-w: 1220px;
+  --pad-page: clamp(20px, 5vw, 64px);
+
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 48px;
+  --space-xl: 96px;
+
+  /* Bewusst kein CSS-Filter auf Fotos: Originalbilder sollen in voller
+     Farbe, vollem Kontrast und maximaler Qualität erscheinen (kein
+     grayscale/brightness/contrast-Downgrade). Textlesbarkeit wird über
+     die __overlay-Verläufe direkt hinter dem Text sichergestellt, nicht
+     durch pauschales Abdunkeln der ganzen Aufnahme. */
+  --photo-filter: none;
+
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+/* =====================================================================
+   RESET & BASE
+   ===================================================================== */
+*, *::before, *::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+img, svg{ display:block; max-width:100%; }
+a{ color: inherit; text-decoration: none; }
+ul{ list-style:none; margin:0; padding:0; }
+h1,h2,h3,p{ margin:0; }
+
+.skip-link{
+  position:absolute; left:-999px; top:0;
+  background:var(--color-ink); color:#fff; padding:12px 20px; z-index:200;
+}
+.skip-link:focus{ left:12px; top:12px; }
+
+.container{
+  max-width: var(--container-w);
+  margin: 0 auto;
+  padding: 0 var(--pad-page);
+}
+
+/* Fluid section rhythm */
+section{ padding: var(--space-xl) 0; }
+
+.eyebrow{
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+}
+.eyebrow--light{ color: #AEB4C2; }
+
+.section-title{
+  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  max-width: 18ch;
+  margin-bottom: var(--space-md);
+  text-wrap: balance;
+}
+.section-title--lg{
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  max-width: 14ch;
+}
+
+.section-text{
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  color: var(--color-grey);
+  max-width: 58ch;
+  line-height: 1.7;
+}
+
+/* =====================================================================
+   BUTTONS
+   ===================================================================== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease);
+  white-space: nowrap;
+}
+.btn:hover{ transform: translateY(-1px); }
+.btn:active{ transform: translateY(0); }
+
+.btn--primary{
+  background: var(--color-accent);
+  color: #fff;
+}
+.btn--primary:hover{ background: var(--color-accent-ink); }
+
+.btn--outline{
+  background: transparent;
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+}
+.btn--outline:hover{ background: var(--color-ink); color:#fff; }
+
+.btn--nav{
+  background: transparent;
+  border-color: rgba(255,255,255,.55);
+  color: #fff;
+  padding: 9px 18px;
+}
+.nav--solid .btn--nav{
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+}
+.btn--nav:hover{ background: rgba(255,255,255,.12); }
+.nav--solid .btn--nav:hover{ background: var(--color-surface); }
+
+.btn--lg{ padding: 14px 30px; font-size: 15px; }
+
+/* =====================================================================
+   NAVIGATION — transparent über dem Hero, wird beim Scrollen deckend
+   ===================================================================== */
+.nav{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  transition: background .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+.nav--solid{
+  background: rgba(250,250,250,.92);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--color-border);
+}
+.nav__inner{
+  max-width: var(--container-w);
+  margin: 0 auto;
+  padding: 18px var(--pad-page);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: var(--space-md);
+}
+.nav__logo{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  color: #fff;
+  transition: color .3s var(--ease);
+}
+.nav--solid .nav__logo{ color: var(--color-ink); }
+
+.nav__logo-text{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  line-height:1;
+}
+.nav__logo-main{
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.nav__logo-sub{
+  font-weight: 700;
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.72;
+  margin-top: 3px;
+  margin-right: 6px; /* zieht "Hannover" etwas nach links, statt exakt mittig */
+}
+.nav__logo-mark{
+  width: 18px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.nav__logo--lg .nav__logo-main{ font-size: 20px; }
+.nav__logo--lg .nav__logo-sub{ font-size: 11px; margin-top: 4px; margin-right: 7px; }
+.nav__logo--lg .nav__logo-mark{ width: 24px; height: 20px; }
+.footer .nav__logo{ color: var(--color-ink); }
+
+.nav__links{
+  display:flex;
+  gap: 32px;
+  margin-right: auto;
+  margin-left: 48px;
+}
+.nav__links a{
+  font-size: 15.5px;
+  font-weight: 500;
+  color: rgba(255,255,255,.85);
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  transition: color .3s var(--ease), border-color .2s var(--ease);
+}
+.nav--solid .nav__links a{ color: var(--color-grey); }
+.nav__links a:hover{ border-color: var(--color-accent); }
+.nav--solid .nav__links a:hover{ color: var(--color-ink); }
+
+.nav__item--dropdown{ position:relative; }
+.nav__dropdown{
+  position:absolute;
+  top: 100%;
+  left: -14px;
+  margin-top: 14px;
+  min-width: 200px;
+  padding: 8px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 16px 32px rgba(17,17,17,.1);
+  display:flex;
+  flex-direction:column;
+  opacity:0;
+  visibility:hidden;
+  transform: translateY(-6px);
+  transition: opacity .2s var(--ease), transform .2s var(--ease), visibility .2s;
+}
+.nav__item--dropdown:hover .nav__dropdown,
+.nav__item--dropdown:focus-within .nav__dropdown{
+  opacity:1;
+  visibility:visible;
+  transform:none;
+}
+.nav__dropdown a{
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-ink);
+  border-bottom: none;
+}
+.nav__dropdown a:hover{ background: var(--color-surface); border-color:transparent; }
+
+.nav__burger{
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  gap:5px;
+  width:32px; height:32px;
+  background:none; border:none; cursor:pointer;
+  padding:0;
+}
+.nav__burger span{
+  display:block; height:2px; width:100%;
+  background:#fff;
+  transition: background .3s var(--ease), transform .3s var(--ease);
+}
+.nav--solid .nav__burger span{ background: var(--color-ink); }
+
+.nav__mobile{
+  display:none;
+  flex-direction:column;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--pad-page) var(--space-lg);
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+.nav__mobile a{ font-size:16px; font-weight:500; color:var(--color-ink); padding: 8px 0; }
+.nav__mobile-sub{
+  display:flex;
+  flex-direction:column;
+  padding-left: 16px;
+  margin-top: -4px;
+  margin-bottom: 4px;
+  border-left: 1px solid var(--color-border);
+}
+.nav__mobile-sub a{ font-size:14px; font-weight:500; color: var(--color-grey); padding: 6px 0 6px 8px; }
+.nav__mobile-cta{ margin-top: var(--space-xs); width: fit-content; }
+.nav.is-open .nav__mobile{ display:flex; }
+
+/* =====================================================================
+   HERO
+   ===================================================================== */
+.hero{
+  position:relative;
+  min-height: 100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding: 0;
+  overflow:hidden;
+}
+.hero__media{
+  position:absolute; inset:0;
+  background-color: #1B1E24; /* Fallback, solange die Fotos noch fehlen */
+}
+.hero__slide{
+  position:absolute; inset:0;
+  background-size: cover;
+  /* --bg-pos / --bg-pos-mobile erlauben pro Bild einen eigenen
+     Bildausschnitt (Art Direction), z. B. style="--bg-pos:center 20%;
+     --bg-pos-mobile:center 10%;" direkt am Element. Ohne Override greift
+     ein sinnvoller Default. */
+  background-position: var(--bg-pos, center 30%);
+  background-repeat: no-repeat;
+  opacity: 0;
+  /* Dauer = Anzahl Slides x 5s, damit der Crossfade-Rhythmus unabhängig
+     von der Slide-Anzahl gleich bleibt (aktuell 7 Slides = 35s). */
+  animation: heroSlideshow 35s infinite;
+  filter: var(--photo-filter);
+}
+.hero__slide:nth-child(1){ animation-delay: 0s; }
+.hero__slide:nth-child(2){ animation-delay: 5s; }
+.hero__slide:nth-child(3){ animation-delay: 10s; }
+.hero__slide:nth-child(4){ animation-delay: 15s; }
+.hero__slide:nth-child(5){ animation-delay: 20s; }
+.hero__slide:nth-child(6){ animation-delay: 25s; }
+.hero__slide:nth-child(7){ animation-delay: 30s; }
+@keyframes heroSlideshow{
+  0%   { opacity: 0; }
+  4%   { opacity: 1; }
+  20%  { opacity: 1; }
+  26%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce){
+  .hero__slide{ animation: none; opacity: 0; }
+  .hero__slide:first-child{ opacity: 1; }
+}
+.hero__overlay{
+  position:absolute; inset:0;
+  /* Max. 18% Deckkraft am unteren Rand, rein für Textlesbarkeit — das Bild
+     bleibt darüber hinaus unangetastet sichtbar (kein flächiges Abdunkeln). */
+  background: linear-gradient(0deg, rgba(8,9,12,.18) 0%, rgba(8,9,12,.05) 35%, rgba(8,9,12,0) 60%);
+}
+.hero__content{
+  position:relative;
+  padding: 0 var(--pad-page) var(--space-xl);
+  max-width: var(--container-w);
+  margin: 0 auto;
+  width:100%;
+  color:#fff;
+}
+.hero__title{
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  max-width: 14ch;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5), 0 8px 30px rgba(0,0,0,.35);
+}
+.hero__subline{
+  font-size: clamp(0.85rem, 2.6vw, 1.35rem);
+  color: rgba(255,255,255,.95);
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  max-width: 34ch;
+  white-space: nowrap;
+  text-shadow: 0 1px 3px rgba(0,0,0,.45), 0 4px 18px rgba(0,0,0,.3);
+}
+@media (max-width: 480px){
+  .hero__subline{ white-space: normal; }
+}
+.hero__scroll{
+  position:absolute;
+  right: var(--pad-page);
+  bottom: var(--space-lg);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  color: rgba(255,255,255,.7);
+  font-size: 11px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.hero__scroll-line{
+  width:1px; height:36px;
+  background: rgba(255,255,255,.4);
+  overflow:hidden;
+  position:relative;
+}
+.hero__scroll-line::after{
+  content:'';
+  position:absolute; top:-100%; left:0;
+  width:100%; height:100%;
+  background:#fff;
+  animation: scrollLine 1.8s var(--ease) infinite;
+}
+@keyframes scrollLine{
+  0%{ top:-100%; } 60%{ top:100%; } 100%{ top:100%; }
+}
+
+/* =====================================================================
+   UNSERE ANGEBOTE
+   ===================================================================== */
+.offers{ background: var(--color-white); }
+.offer-grid{
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+.offer-card{
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  display:flex;
+  flex-direction:column;
+  gap: var(--space-sm);
+  height:100%;
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+}
+.offer-card:hover{
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+  box-shadow: 0 12px 28px rgba(17,17,17,.06);
+}
+.offer-card__media{
+  height: 120px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  background-image: var(--card-bg);
+  background-size: cover;
+  background-position: center;
+  position:relative;
+  overflow:hidden;
+}
+/* Bild liegt zusätzlich in einem eigenen ::before, damit beim Hover nur
+   das Foto sanft zoomt (nicht die Kachel/Box selbst) — Bildpfad kommt
+   über die CSS-Variable --card-bg, die per inline style="--card-bg:url(...)"
+   gesetzt wird. Das Hintergrundbild liegt zusätzlich direkt auf
+   .offer-card__media, damit das Bild auch dann sichtbar ist, wenn eine
+   Vorschau/ein Renderer die CSS-Variable auf dem ::before nicht auflöst. */
+.offer-card__media::before{
+  content:'';
+  position:absolute; inset:0;
+  background-image: var(--card-bg);
+  background-size: cover;
+  background-position: center;
+  transition: transform .5s var(--ease);
+}
+.offer-card:hover .offer-card__media::before{ transform: scale(1.06); }
+.offer-card__accent{
+  position:absolute; left:12px; bottom:12px;
+  width:22px; height:4px;
+  border-radius:2px;
+  background: var(--color-accent);
+}
+.offer-card__index{
+  font-size:12px; color: var(--color-grey); font-weight:600;
+}
+.offer-card__title{ font-size:19px; font-weight:700; letter-spacing:-0.01em; }
+.offer-card__text{ font-size:14px; color:var(--color-grey); line-height:1.6; }
+.offer-card__link{
+  margin-top:auto;
+  font-size:13px; font-weight:600; color: var(--color-accent);
+  display:inline-flex; align-items:center; gap:6px;
+}
+/* Wenn eine offer-card statt des Text-Links einen echten Button enthält
+   (z. B. die Termine-Kacheln auf der Homepage), diesen unten ausrichten
+   und nicht über die volle Kartenbreite strecken. */
+.offer-card > .btn{ margin-top:auto; align-self:flex-start; }
+
+/* Gruppentitel für kategorisierte Angebote (z. B. Padel: Academy / Play /
+   Events & Turniere). Wiederverwendbar für künftige Sportwelten mit
+   mehreren Angebots-Kategorien auf einer Seite. */
+.offers__group-title{
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+/* =====================================================================
+   UNSERE SPORTWELTEN
+   Große Kacheln für die einzelnen Marken unter dem Dach "Playground
+   Hannover" (Hockey Academy, Padel, ...). Jede Kachel führt auf ihre
+   eigene Landingpage. Neue Sportwelten: einfach als Objekt im
+   SPORTWELTEN-Array in js/main.js ergänzen.
+   ===================================================================== */
+.sportwelten{ background: var(--color-white); }
+.sportwelten-grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+.sportwelt-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  min-height: 400px;
+  border-radius: var(--radius-lg);
+  overflow:hidden;
+  background-color: var(--color-ink);
+  transition: box-shadow .4s var(--ease);
+}
+.sportwelt-card:hover{ box-shadow: 0 16px 36px rgba(17,17,17,.18); }
+.sportwelt-card__media{
+  position:absolute; inset:0;
+  background-size: cover;
+  background-position: center;
+  filter: var(--photo-filter);
+  transition: transform .5s var(--ease);
+}
+.sportwelt-card:hover .sportwelt-card__media{ transform: scale(1.05); }
+/* "Bald verfügbar" wird ausschließlich über das Badge kommuniziert, nicht
+   über eine Graustufen-Entsättigung des Fotos (volle Bildqualität bleibt
+   erhalten). */
+.sportwelt-card__overlay{
+  position:absolute; inset:0;
+  /* Max. ~20% Deckkraft, nur im unteren Textbereich — Lesbarkeit kommt
+     primär über text-shadow auf Titel/Text, nicht über ein dunkles Bild. */
+  background: linear-gradient(0deg, rgba(8,9,12,.22) 0%, rgba(8,9,12,.06) 32%, rgba(8,9,12,0) 55%);
+}
+.sportwelt-card__badge{
+  position:absolute; top:16px; right:16px;
+  background: rgba(255,255,255,.92);
+  color: var(--color-ink);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+.sportwelt-card__content{
+  position:relative;
+  padding: var(--space-md);
+  color:#fff;
+}
+.sportwelt-card__title{
+  font-size: 22px; font-weight:700; letter-spacing:-0.01em;
+  line-height: 1.2;
+  min-height: 2.4em; /* Platz für bis zu 2 Zeilen, damit alle Titel auf einer Ebene stehen */
+  display:flex; align-items:flex-end;
+  margin-bottom:6px;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5), 0 6px 20px rgba(0,0,0,.3);
+}
+.sportwelt-card__text{
+  font-size:14px; color: rgba(255,255,255,.92); line-height:1.5; max-width: 34ch;
+  text-shadow: 0 1px 3px rgba(0,0,0,.45), 0 3px 14px rgba(0,0,0,.25);
+  /* Reserviert immer denselben Platz (2 Zeilen), damit der Titel über
+     alle Kacheln hinweg auf derselben Höhe steht, unabhängig von der
+     tatsächlichen Textlänge. */
+  min-height: 2.4em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.sportwelt-card__link{
+  margin-top: 12px;
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:13px; font-weight:600; color:#fff;
+}
+
+/* Wiederverwendbares 5er-Kachelraster, z. B. für Trainingsschwerpunkte
+   auf den Angebots-Unterseiten. Nutzt dieselben .sportwelt-card-Kacheln. */
+.focus-grid{
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+.focus-grid .sportwelt-card{ min-height: 220px; }
+.focus-grid .sportwelt-card__title{
+  font-size: 17px;
+  min-height: 2.6em;
+}
+
+/* =====================================================================
+   WARUM PLAYGROUND?
+   Kurzer, zentrierter Abschnitt — bewusst ohne lange Erklärung.
+   ===================================================================== */
+.why{ background: var(--color-bg); text-align:center; }
+.why .container{ max-width: 760px; }
+.why .eyebrow, .why .section-title, .why .section-text{
+  margin-left:auto; margin-right:auto;
+}
+
+/* =====================================================================
+   GESCHICHTE-TEASER (Homepage)
+   ===================================================================== */
+.story-teaser{ background: var(--color-white); }
+.story-teaser__inner{
+  display:grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: var(--space-xl);
+  align-items:center;
+}
+.story-teaser__media{
+  aspect-ratio: 4/5;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  background-size: cover;
+  background-position: center;
+  filter: var(--photo-filter);
+}
+
+/* =====================================================================
+   DARUM TRAINIEREN WIR ANDERS (Hockey Academy)
+   Drei Karten mit Icon, Titel, Kurztext.
+   ===================================================================== */
+.training{ background: var(--color-white); }
+.training-grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+.training-card{
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  min-height: 300px;
+  border-radius: var(--radius-lg);
+  overflow:hidden;
+  background-color: var(--color-ink);
+  transition: box-shadow .4s var(--ease);
+}
+.training-card:hover{ box-shadow: 0 16px 36px rgba(17,17,17,.18); }
+.training-card__media{
+  position:absolute; inset:0;
+  background-size: cover;
+  background-position: center;
+  filter: var(--photo-filter);
+  transition: transform .5s var(--ease);
+}
+.training-card:hover .training-card__media{ transform: scale(1.05); }
+.training-card__overlay{
+  position:absolute; inset:0;
+  background: linear-gradient(0deg, rgba(8,9,12,.22) 0%, rgba(8,9,12,.06) 32%, rgba(8,9,12,0) 55%);
+}
+.training-card__title{
+  position:relative;
+  padding: var(--space-md);
+  color:#fff;
+  font-size:19px;
+  font-weight:700;
+  letter-spacing:-0.01em;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5), 0 6px 20px rgba(0,0,0,.3);
+}
+
+/* =====================================================================
+   COACH-SEKTION (Hockey Academy)
+   ===================================================================== */
+.coach{ background: var(--color-bg); }
+.coach__inner{
+  display:grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: var(--space-xl);
+  align-items:center;
+}
+.coach__media{
+  aspect-ratio: 3/4;
+  max-width: 340px;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  background-size: cover;
+  background-position: center;
+  filter: var(--photo-filter);
+}
+.coach__name{
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+}
+.coach__text .section-text{ margin-bottom: var(--space-sm); }
+.coach__facts{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+.coach__fact{
+  padding: 4px 0 4px var(--space-sm);
+  border-left: 2px solid var(--color-accent);
+}
+.coach__fact-text{ font-size:14px; font-weight:600; color: var(--color-ink); line-height:1.4; }
+
+/* =====================================================================
+   FAQ (Hockey Academy)
+   ===================================================================== */
+.faq{ background: var(--color-white); }
+.faq-list{
+  max-width: 800px;
+  margin-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+.faq-item{ border-bottom: 1px solid var(--color-border); }
+.faq-item summary{
+  cursor:pointer;
+  list-style:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: var(--space-md);
+  font-weight:600;
+  font-size:16px;
+  padding: var(--space-sm) 0;
+}
+.faq-item summary::-webkit-details-marker{ display:none; }
+.faq-item summary::after{
+  content:'+';
+  flex-shrink:0;
+  font-size:22px;
+  font-weight:400;
+  color: var(--color-accent);
+  transition: transform .25s var(--ease);
+}
+.faq-item[open] summary::after{ transform: rotate(45deg); }
+.faq-item p{
+  font-size:14px;
+  color: var(--color-grey);
+  line-height:1.7;
+  max-width: 65ch;
+  padding-bottom: var(--space-sm);
+}
+
+/* =====================================================================
+   ANFRAGEFORMULAR (z. B. On Tour)
+   ===================================================================== */
+.request-form{
+  max-width: 640px;
+  margin-top: var(--space-lg);
+  display:flex;
+  flex-direction:column;
+  gap: var(--space-sm);
+}
+.form-row{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+.form-field{ display:flex; flex-direction:column; gap:6px; }
+.form-field label{ font-size:13px; font-weight:600; color: var(--color-ink); }
+.form-field input,
+.form-field textarea{
+  font-family: var(--font-sans);
+  font-size:15px;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  color: var(--color-ink);
+}
+.form-field input:focus,
+.form-field textarea:focus{ outline:none; border-color: var(--color-accent); }
+.form-field textarea{ resize: vertical; min-height:120px; }
+.form-note{ font-size:12px; color: var(--color-grey); }
+
+/* =====================================================================
+   ABSCHLUSS-CTA (großes Bild + Headline + Button)
+   ===================================================================== */
+.closing-cta{
+  position:relative;
+  min-height: 56vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+}
+.closing-cta__media{
+  position:absolute; inset:0;
+  background-color: var(--color-ink);
+  background-size: cover;
+  background-position: var(--bg-pos, center);
+  filter: var(--photo-filter);
+}
+.closing-cta__overlay{
+  position:absolute; inset:0;
+  /* Zentrierter Text braucht gleichmäßige, aber dezente Abdunkelung
+     (max. ~20%) — der Rest der Lesbarkeit kommt über text-shadow. */
+  background: radial-gradient(120% 100% at 50% 50%, rgba(8,9,12,.14) 0%, rgba(8,9,12,.2) 100%);
+}
+.closing-cta__content{
+  position:relative;
+  color:#fff;
+  padding: 0 var(--pad-page);
+}
+.closing-cta__title{
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height:1.15;
+  max-width: 18ch;
+  margin: 0 auto var(--space-md);
+  text-shadow: 0 1px 3px rgba(0,0,0,.55), 0 8px 30px rgba(0,0,0,.4);
+}
+
+/* =====================================================================
+   COMMUNITY
+   ===================================================================== */
+.community{ background: var(--color-bg); }
+.community__inner{
+  display:grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--space-xl);
+  align-items:center;
+}
+.community__tabs{
+  display:flex; flex-wrap:wrap; gap:8px;
+  margin: var(--space-sm) 0 var(--space-md);
+}
+.community__tab{
+  font-family: var(--font-sans);
+  font-size:13px; font-weight:600;
+  padding:8px 16px;
+  border-radius:999px;
+  border:1px solid var(--color-border);
+  background: var(--color-white);
+  color: var(--color-grey);
+  cursor:pointer;
+  transition: background .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease);
+}
+.community__tab:hover{ border-color: var(--color-accent); color: var(--color-ink); }
+.community__tab.is-active{
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color:#fff;
+}
+.community__actions{
+  display:flex; flex-wrap:wrap; gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+.community__media{
+  aspect-ratio: 4/5;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-ink);
+  background-size: cover;
+  background-position: center;
+  filter: var(--photo-filter);
+}
+/* Zwei Update-Grafiken (Hockey Academy Update, Padel Newsletter) nebeneinander
+   statt eines einzelnen Fotos, jede Grafik behält ihr natives Seitenverhältnis
+   (4:5), daher Container im Verhältnis 8:5 mit zwei gleich breiten Spalten. */
+.community__media--split{
+  aspect-ratio: 8/5;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:8px;
+  background:none;
+}
+.community__media-item{
+  border-radius: var(--radius-lg);
+  background-size: cover;
+  background-position: center;
+}
+
+/* =====================================================================
+   AKTUELLE TERMINE
+   ===================================================================== */
+.termine{ background: var(--color-white); }
+.termine-list{
+  display:flex;
+  flex-direction:column;
+  border-top: 1px solid var(--color-border);
+  margin: var(--space-lg) 0;
+}
+.termine-item{
+  display:flex;
+  align-items:center;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.termine-item__date{
+  font-weight:700;
+  font-size:15px;
+  min-width: 120px;
+  color: var(--color-accent);
+}
+.termine-item__title{ font-weight:600; font-size:16px; flex:1; }
+.termine-item__tag{
+  font-size:12px;
+  font-weight:600;
+  color: var(--color-grey);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+/* =====================================================================
+   VISION
+   ===================================================================== */
+.vision{
+  background: var(--color-ink);
+  color: #fff;
+  text-align:center;
+}
+.vision{ padding-bottom: var(--space-lg); }
+.vision .container{ max-width: 1100px; }
+.vision__statement{
+  font-size: clamp(1.1rem, 3vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+@media (max-width: 640px){
+  .vision__statement{ white-space: normal; }
+}
+
+/* =====================================================================
+   UNSERE GESCHICHTE (Story-Seite)
+   Editoriales Wechsel-Layout: großes Bild + kurzer Text je Kapitel,
+   viel Weißraum statt Fließtext. Nutzt dieselben Tokens/Reveal-Klassen
+   wie der Rest der Seite.
+   ===================================================================== */
+.story-hero{
+  position:relative;
+  min-height: 64vh;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+  padding:0;
+}
+.story-hero__media{
+  position:absolute; inset:0;
+  background-color: var(--color-ink);
+  background-size: cover;
+  background-position: var(--bg-pos, center);
+  filter: var(--photo-filter);
+}
+.story-hero__overlay{
+  position:absolute; inset:0;
+  background: linear-gradient(0deg, rgba(8,9,12,.2) 0%, rgba(8,9,12,.05) 35%, rgba(8,9,12,0) 60%);
+}
+
+/* =====================================================================
+   VIDEO-HINTERGRUND (Hero & Closing-CTA)
+   Unser Rohmaterial ist hochkant gefilmt (Handyvideo). Statt es breit-
+   flächig zu verzerren/zu croppen, zeigen wir es in Originalproportion
+   zentriert und scharf, während eine stark geweichzeichnete, abgedunkelte
+   Kopie desselben Frames den Rand füllt — dasselbe Prinzip wie bei
+   Spotify/Instagram für Hochkant-Inhalte in Breitformaten. Fällt
+   prefers-reduced-motion oder Datensparmodus weg, bleibt das normale
+   __media-Hintergrundbild als Standbild sichtbar (Video wird nur
+   darüber gelegt).
+   ===================================================================== */
+.media-video{
+  position:absolute; inset:0;
+  overflow:hidden;
+}
+.media-video__backdrop{
+  position:absolute; inset:0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(50px) brightness(0.55) saturate(1.1);
+  transform: scale(1.15); /* verdeckt den unscharfen Rand */
+}
+.media-video__player{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 50px rgba(0,0,0,.45));
+}
+@media (prefers-reduced-motion: reduce){
+  .media-video{ display:none; }
+}
+
+/* Querformat-Variante: Das Videomaterial ist bereits breitformatig
+   zugeschnitten, daher kein Blur-Backdrop nötig — das Video füllt die
+   Fläche vollflächig wie ein normales Hintergrundbild (object-fit:cover). */
+.media-video--wide .media-video__backdrop{
+  display:none;
+}
+.media-video--wide .media-video__player{
+  object-fit: cover;
+  filter: none;
+}
+.story-hero__content{
+  position:relative;
+  padding: 0 var(--pad-page) var(--space-xl);
+  max-width: var(--container-w);
+  margin: 0 auto;
+  width:100%;
+  color:#fff;
+}
+.story-hero__title{
+  font-size: clamp(2.25rem, 6vw, 4.25rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  max-width: 16ch;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5), 0 8px 30px rgba(0,0,0,.35);
+}
+.story-hero__subline{
+  font-size: clamp(0.9rem, 2.6vw, 1.35rem);
+  color: rgba(255,255,255,.95);
+  margin-top: var(--space-sm);
+  max-width: 40ch;
+  white-space: nowrap;
+  text-shadow: 0 1px 3px rgba(0,0,0,.45), 0 4px 18px rgba(0,0,0,.3);
+}
+@media (max-width: 480px){
+  .story-hero__subline{ white-space: normal; }
+}
+
+.story-chapters{ background: var(--color-white); }
+.story-chapter{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items:center;
+  padding: var(--space-xl) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.story-chapter:last-of-type{ border-bottom:none; }
+.story-chapter--reverse .story-chapter__media{ order:2; }
+.story-chapter--reverse .story-chapter__text{ order:1; }
+.story-chapter__media{
+  aspect-ratio: 4/5;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  background-size: cover;
+  background-position: center;
+  filter: var(--photo-filter);
+}
+.story-chapter__num{
+  display:block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: var(--color-accent);
+  margin-bottom: var(--space-xs);
+}
+.story-chapter__text h2{
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: var(--space-sm);
+}
+.story-chapter__text p{
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  color: var(--color-grey);
+  line-height: 1.75;
+  max-width: 46ch;
+}
+
+.story-closing{
+  background: var(--color-ink);
+  color: #fff;
+  text-align:center;
+  padding-top: var(--space-lg);
+}
+.story-closing .container{ max-width: 900px; }
+.story-closing__statement{
+  font-size: clamp(1.35rem, 3.6vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  margin-bottom: var(--space-lg);
+}
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+.footer{ background: var(--color-white); border-top: 1px solid var(--color-border); }
+.footer__inner{
+  display:grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: var(--space-lg);
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-lg);
+}
+.footer__heading{ font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color: var(--color-grey); margin-bottom: var(--space-sm); }
+.footer__col{ display:flex; flex-direction:column; gap:10px; }
+.footer__col a{ font-size:14px; color: var(--color-ink); }
+.footer__col a:hover{ color: var(--color-accent); }
+.footer__bottom{
+  display:flex; justify-content:space-between;
+  padding: var(--space-md) 0 var(--space-lg);
+  border-top: 1px solid var(--color-border);
+  font-size: 12px; color: var(--color-grey);
+}
+
+/* =====================================================================
+   SCROLL REVEAL
+   ===================================================================== */
+.reveal{
+  opacity:0;
+  transform: translateY(16px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+.reveal.is-visible{ opacity:1; transform:none; }
+
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+@media (max-width: 860px){
+  .nav__links{ display:none; }
+  .btn--nav{ display:none; }
+  .nav__burger{ display:flex; }
+  .sportwelten-grid{ grid-template-columns: repeat(2, 1fr); }
+  .training-grid{ grid-template-columns: repeat(2, 1fr) !important; }
+  .offer-grid{ grid-template-columns: repeat(2, 1fr) !important; }
+  .focus-grid{ grid-template-columns: repeat(2, 1fr) !important; }
+  .coach__facts{ grid-template-columns: repeat(2, 1fr) !important; }
+  .coach__inner{ grid-template-columns: 1fr; }
+  .coach__media{ order:-1; aspect-ratio: 16/9; }
+  .community__inner{ grid-template-columns: 1fr; }
+  .community__media{ order:-1; aspect-ratio: 16/9; }
+  .community__media--split{ order:-1; aspect-ratio: 16/9; }
+  .story-teaser__inner{ grid-template-columns: 1fr; }
+  .story-teaser__media{ order:-1; aspect-ratio: 16/9; }
+  .footer__inner{ grid-template-columns: 1fr 1fr; }
+  .story-hero{ min-height: 52vh; }
+  .story-chapter{ grid-template-columns: 1fr; gap: var(--space-md); padding: var(--space-lg) 0; }
+  .story-chapter__media{ order:-1; aspect-ratio: 4/3; }
+  .story-chapter--reverse .story-chapter__media{ order:-1; }
+  .story-chapter--reverse .story-chapter__text{ order:0; }
+}
+
+@media (max-width: 560px){
+  section{ padding: var(--space-lg) 0; }
+  .form-row{ grid-template-columns: 1fr; }
+  .sportwelten-grid{ grid-template-columns: 1fr; }
+  .training-grid{ grid-template-columns: 1fr !important; }
+  .offer-grid{ grid-template-columns: 1fr !important; }
+  .focus-grid{ grid-template-columns: 1fr !important; }
+  .coach__facts{ grid-template-columns: 1fr !important; }
+  .footer__inner{ grid-template-columns: 1fr; }
+  .termine-item{ flex-wrap:wrap; }
+  .termine-item__tag{ order:3; }
+
+  /* Mobile-Bildausschnitte: schmalere, höhere Viewports schneiden bei
+     background-position:center schneller wichtige Bildinhalte (Gesichter,
+     Aktion) oben/unten ab. Default rückt den Ausschnitt näher an den
+     oberen Bilddrittel; --bg-pos-mobile erlaubt weiterhin Art Direction
+     pro Bild via style="--bg-pos-mobile:center 10%;". */
+  .hero__slide{ background-position: var(--bg-pos-mobile, var(--bg-pos, center 20%)); }
+  .story-hero__media{ background-position: var(--bg-pos-mobile, var(--bg-pos, center 20%)); }
+  .closing-cta__media{ background-position: var(--bg-pos-mobile, var(--bg-pos, center 25%)); }
+}

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hockey Academy · Playground Hannover</title>
+<meta name="description" content="Playground Hockey Academy: individuelle Entwicklung, intensive Einheiten und eine starke Community. Sessions, Private Sessions, Camps & Events und On Tour in Hannover.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<!-- ============================= NAVIGATION ============================= -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html#top" class="nav__logo" aria-label="Zur Startseite von Playground Hannover">
+      <span class="nav__logo-text">
+        <span class="nav__logo-main">Playground</span>
+        <span class="nav__logo-sub">Hannover</span>
+      </span>
+      <svg class="nav__logo-mark" viewBox="-2 0 26 22" fill="none" aria-hidden="true">
+        <rect x="0" y="2" width="2.6" height="17" fill="currentColor"/>
+        <rect x="9.2" y="2" width="2.6" height="17" fill="currentColor"/>
+        <rect x="18.4" y="2" width="2.6" height="17" fill="currentColor"/>
+        <rect x="-2" y="19" width="25" height="3" fill="currentColor"/>
+      </svg>
+    </a>
+
+    <nav class="nav__links" id="navLinks" aria-label="Hauptnavigation">
+      <div class="nav__item nav__item--dropdown">
+        <a href="index.html#sportwelten">Sportwelten</a>
+        <div class="nav__dropdown">
+          <a href="hockey-academy.html">Hockey Academy</a>
+          <a href="padel.html">Padel</a>
+          <a href="soccer.html">Soccer</a>
+          <a href="kids-club.html">Kids Club</a>
+        </div>
+      </div>
+      <a href="index.html#community">Community</a>
+      <a href="index.html#termine">Highlights</a>
+      <a href="geschichte.html">Über uns</a>
+    </nav>
+
+    <a href="#angebote" class="btn btn--nav">Jetzt buchen</a>
+
+    <button class="nav__burger" id="navBurger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navMobile">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="nav__mobile" id="navMobile" aria-label="Mobile Navigation">
+    <a href="index.html#sportwelten">Sportwelten</a>
+    <div class="nav__mobile-sub">
+      <a href="hockey-academy.html">Hockey Academy</a>
+      <a href="padel.html">Padel</a>
+      <a href="soccer.html">Soccer</a>
+      <a href="kids-club.html">Kids Club</a>
+    </div>
+    <a href="index.html#community">Community</a>
+    <a href="index.html#termine">Highlights</a>
+    <a href="geschichte.html">Über uns</a>
+    <a href="#angebote" class="btn btn--primary nav__mobile-cta">Jetzt buchen</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============================= HERO ============================= -->
+  <!-- Eigenes Foto: Coach im Schlenzer (Standbild-Fallback für Video/Reduced-Motion). -->
+  <section class="story-hero">
+    <div class="story-hero__media" aria-hidden="true" style="background-image:url('public/images/hockey/hero-schlenzer.jpg')"></div>
+    <!-- Eigenes Video: Dribbling-Training am DHC Hannover (Querformat). -->
+    <div class="media-video media-video--wide" aria-hidden="true">
+      <video class="media-video__player" autoplay muted loop playsinline poster="public/images/hockey/hero-academy-wide-poster.jpg">
+        <source src="public/videos/hockey/hero-academy-wide.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="story-hero__overlay"></div>
+    <div class="story-hero__content">
+      <p class="eyebrow eyebrow--light reveal">Sportwelt</p>
+      <h1 class="story-hero__title reveal">Hockey Academy</h1>
+      <p class="story-hero__subline reveal">Move. Learn. Grow.</p>
+      <a href="#angebote" class="btn btn--primary btn--lg reveal" style="margin-top: var(--space-md);">Jetzt buchen</a>
+    </div>
+  </section>
+
+  <!-- ============================= DARUM TRAINIEREN WIR ANDERS ============================= -->
+  <section class="training">
+    <div class="container">
+      <p class="eyebrow reveal">Unser Ansatz</p>
+      <h2 class="section-title reveal">Dafür stehen wir.</h2>
+      <!-- Bewusst ohne Beschreibungstext — das Bild trägt die Aussage. -->
+      <div class="training-grid">
+        <div class="training-card reveal">
+          <div class="training-card__media" aria-hidden="true" style="background-image:url('public/images/hockey/training-coaching.jpg')"></div>
+          <div class="training-card__overlay"></div>
+          <h3 class="training-card__title">Kleine Gruppen</h3>
+        </div>
+        <div class="training-card reveal">
+          <div class="training-card__media" aria-hidden="true" style="background-image:url('public/images/hockey/training-teamgeist.jpg')"></div>
+          <div class="training-card__overlay"></div>
+          <h3 class="training-card__title">Individuelle Förderung</h3>
+        </div>
+        <div class="training-card reveal">
+          <div class="training-card__media" aria-hidden="true" style="background-image:url('public/images/hockey/training-erfolge.jpg')"></div>
+          <div class="training-card__overlay"></div>
+          <h3 class="training-card__title">Vereinsunabhängigkeit</h3>
+        </div>
+        <div class="training-card reveal">
+          <div class="training-card__media" aria-hidden="true" style="background-image:url('public/images/hockey/training-passion.jpg')"></div>
+          <div class="training-card__overlay"></div>
+          <h3 class="training-card__title">Intensive Einheiten</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= UNSERE ANGEBOTE ============================= -->
+  <!--
+    Datengetrieben über OFFERS in js/main.js.
+    Neue Bereiche (z. B. weitere Camps-Formate) werden künftig einfach
+    als zusätzliches Objekt im OFFERS-Array ergänzt.
+  -->
+  <section class="offers" id="angebote">
+    <div class="container">
+      <p class="eyebrow reveal">Unsere Angebote</p>
+      <h2 class="section-title reveal">Finde das Angebot, das zu Dir und Deinen Zielen passt.</h2>
+      <div class="offer-grid" id="offerGrid"><!-- wird per JS befüllt --></div>
+    </div>
+  </section>
+
+  <!-- ============================= AKTUELLE TERMINE ============================= -->
+  <section class="termine" id="termine">
+    <div class="container">
+      <p class="eyebrow reveal">Aktuelle Termine</p>
+      <h2 class="section-title reveal">Alle Termine im Überblick.</h2>
+      <p class="section-text reveal">Alle Sessions, Camps und Masterclasses findest Du gesammelt in unserem Hockey-Terminkalender.</p>
+      <a href="https://www.eversports.de/org/widget/affc895d-b2df-4783-901c-7377d5bb61d4?venueId=545ed9ef-71c6-4e71-b5dd-2a5a6d34a44f" target="_blank" rel="noopener" class="btn btn--primary reveal" style="margin-top: var(--space-md);">Zum Terminkalender</a>
+    </div>
+  </section>
+
+  <!-- ============================= COACH ============================= -->
+  <!-- Eigenes Foto: Coach-Portrait. -->
+  <section class="coach">
+    <div class="container coach__inner">
+      <div class="coach__media" aria-hidden="true" style="background-image:url('public/images/hockey/coach-portrait.jpg')"></div>
+      <div class="coach__text">
+        <p class="eyebrow reveal">Dein Coach</p>
+        <h2 class="section-title reveal">Lerne deinen Coach kennen.</h2>
+        <p class="coach__name reveal">Maximilian Schnepel</p>
+        <p class="section-text reveal">
+          Seit vielen Jahren begleitet mich der Hockeysport, als Spieler
+          und Trainer im Leistungs- und Nachwuchssport. Mein Ziel: jede
+          Spielerin und jeden Spieler individuell weiterentwickeln, mit
+          kleinen Gruppen, intensivem Training und persönlichem Feedback
+          für mehr Technik, Selbstvertrauen und Spielverständnis. Denn
+          nachhaltige Entwicklung entsteht nicht durch möglichst viele
+          Spieler auf dem Platz, sondern durch Qualität, Aufmerksamkeit
+          und Begeisterung für den Sport.
+        </p>
+        <div class="coach__facts">
+          <div class="coach__fact reveal"><p class="coach__fact-text">16 Jahre Bundesliga-Erfahrung</p></div>
+          <div class="coach__fact reveal"><p class="coach__fact-text">Deutscher Meister als Trainer</p></div>
+          <div class="coach__fact reveal"><p class="coach__fact-text">Deutscher Vizemeister als Spieler</p></div>
+          <div class="coach__fact reveal"><p class="coach__fact-text">Seit über 16 Jahren Kinder- und Jugendcoach</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= FAQ ============================= -->
+  <section class="faq">
+    <div class="container">
+      <p class="eyebrow reveal">FAQ</p>
+      <h2 class="section-title reveal">Kurz beantwortet.</h2>
+      <div class="faq-list">
+        <details class="faq-item reveal">
+          <summary>Ist es egal, in welchem Verein mein Kind spielt?</summary>
+          <p>Ja. Die Playground Hockey Academy ist vereinsunabhängig. Alle Spielerinnen und Spieler der Altersklassen U10 bis U16 sind herzlich willkommen, unabhängig vom aktuellen Verein oder Leistungsstand. Im Mittelpunkt steht die individuelle Entwicklung jedes Einzelnen.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Für wen ist die Hockey Academy geeignet?</summary>
+          <p>Unsere Angebote richten sich an Spielerinnen und Spieler der Altersklassen U10 bis U16, die ihr Hockey gezielt weiterentwickeln möchten. Vorausgesetzt werden rund zwei Jahre Hockeyerfahrung und sichere Grundtechniken. Egal ob Technik, Spielverständnis oder individuelle Schwerpunkte: Jede Einheit ist darauf ausgelegt, den nächsten Entwicklungsschritt zu ermöglichen.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Was passiert, wenn ich einen Termin absagen muss?</summary>
+          <p>Absagen erfolgen ganz einfach über deinen Eversports-Account. Bitte beachte, dass eine kostenfreie Stornierung bis 24 Stunden vor Trainingsbeginn möglich ist. So können wir die Gruppen optimal planen und gegebenenfalls Wartelisten berücksichtigen.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Wo findet das Training statt?</summary>
+          <p>Die meisten Einheiten finden auf der Anlage des DHC Hannover statt. Dank der hervorragenden Trainingsbedingungen mit zwei Hockeyplätzen können wir dort optimale Trainingseinheiten anbieten. Je nach Angebot oder Event können einzelne Termine auch an anderen Standorten stattfinden.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Was muss ich zum Training mitbringen?</summary>
+          <p>Bitte bringe deinen Hockeyschläger, Schienbeinschoner, Mundschutz, passende Sportschuhe sowie ausreichend Getränke mit. Alle weiteren Informationen erhältst du vor der jeweiligen Einheit.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Wie kann ich Kontakt aufnehmen?</summary>
+          <p>Du erreichst uns jederzeit per E-Mail unter <a href="mailto:info@playgroundhannover.de">info@playgroundhannover.de</a>. Wir melden uns schnellstmöglich bei dir zurück.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= ABSCHLUSS ============================= -->
+  <!-- Eigenes Foto: Team-Erfolgsmoment (Standbild-Fallback für Video/Reduced-Motion). -->
+  <section class="closing-cta">
+    <div class="closing-cta__media" aria-hidden="true" style="background-image:url('public/images/hockey/closing-academy.jpg')"></div>
+    <!-- Eigenes Video: Stick- und Balltechnik in Nahaufnahme (Querformat). -->
+    <div class="media-video media-video--wide" aria-hidden="true">
+      <video class="media-video__player" autoplay muted loop playsinline poster="public/images/hockey/closing-academy-wide-poster.jpg">
+        <source src="public/videos/hockey/closing-academy-wide.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="closing-cta__overlay"></div>
+    <div class="closing-cta__content">
+      <h2 class="closing-cta__title reveal">Bereit für dein nächstes Training?</h2>
+      <a href="#angebote" class="btn btn--primary btn--lg reveal">Jetzt buchen</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <span class="nav__logo nav__logo--lg">
+        <span class="nav__logo-text">
+          <span class="nav__logo-main">Playground</span>
+          <span class="nav__logo-sub">Hannover</span>
+        </span>
+        <svg class="nav__logo-mark" viewBox="-2 0 26 22" fill="none" aria-hidden="true">
+          <rect x="0" y="2" width="2.6" height="17" fill="currentColor"/>
+          <rect x="9.2" y="2" width="2.6" height="17" fill="currentColor"/>
+          <rect x="18.4" y="2" width="2.6" height="17" fill="currentColor"/>
+          <rect x="-2" y="19" width="25" height="3" fill="currentColor"/>
+        </svg>
+      </span>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer__heading">Sportwelten</p>
+      <a href="hockey-academy.html">Hockey Academy</a>
+      <a href="padel.html">Padel</a>
+      <a href="soccer.html">Soccer</a>
+      <a href="kids-club.html">Kids Club</a>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer__heading">Playground</p>
+      <a href="index.html#community">Community</a>
+      <a href="geschichte.html">Über uns</a>
+      <a href="geschichte.html#vision">Vision</a>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer__heading">Kontakt</p>
+      <a href="mailto:info@playgroundhannover.de">info@playgroundhannover.de</a>
+      <a href="#">Instagram</a>
+      <a href="#">WhatsApp-Community</a>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <span>© 2026 Playground Hannover</span>
+    <span>Impressum · Datenschutz</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

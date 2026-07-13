@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playground Hannover · More than sport.</title>
+<meta name="description" content="Playground Hannover ist die Dachmarke für Hockey Academy, Padel und weitere Sportwelten. A place to move, connect and grow.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<!-- ============================= NAVIGATION ============================= -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#top" class="nav__logo" aria-label="Zur Startseite von Playground Hannover">
+      <span class="nav__logo-text">
+        <span class="nav__logo-main">Playground</span>
+        <span class="nav__logo-sub">Hannover</span>
+      </span>
+      <svg class="nav__logo-mark" viewBox="-2 0 26 22" fill="none" aria-hidden="true">
+        <rect x="0" y="2" width="2.6" height="17" fill="currentColor"/>
+        <rect x="9.2" y="2" width="2.6" height="17" fill="currentColor"/>
+        <rect x="18.4" y="2" width="2.6" height="17" fill="currentColor"/>
+        <rect x="-2" y="19" width="25" height="3" fill="currentColor"/>
+      </svg>
+    </a>
+
+    <nav class="nav__links" id="navLinks" aria-label="Hauptnavigation">
+      <div class="nav__item nav__item--dropdown">
+        <a href="#sportwelten">Sportwelten</a>
+        <div class="nav__dropdown">
+          <a href="hockey-academy.html">Hockey Academy</a>
+          <a href="padel.html">Padel</a>
+          <a href="soccer.html">Soccer</a>
+          <a href="kids-club.html">Kids Club</a>
+        </div>
+      </div>
+      <a href="#community">Community</a>
+      <a href="#termine">Highlights</a>
+      <a href="geschichte.html">Über uns</a>
+    </nav>
+
+    <a href="#sportwelten" class="btn btn--nav">Jetzt starten</a>
+
+    <button class="nav__burger" id="navBurger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navMobile">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="nav__mobile" id="navMobile" aria-label="Mobile Navigation">
+    <a href="#sportwelten">Sportwelten</a>
+    <div class="nav__mobile-sub">
+      <a href="hockey-academy.html">Hockey Academy</a>
+      <a href="padel.html">Padel</a>
+      <a href="soccer.html">Soccer</a>
+      <a href="kids-club.html">Kids Club</a>
+    </div>
+    <a href="#community">Community</a>
+    <a href="#termine">Highlights</a>
+    <a href="geschichte.html">Über uns</a>
+    <a href="#sportwelten" class="btn btn--primary nav__mobile-cta">Jetzt starten</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============================= HERO ============================= -->
+  <!-- Rotierender Bildhintergrund, überblendet endlos im Kreis (reines CSS,
+       kein JS nötig). Aktuell freie Platzhalterfotos (picsum.photos, da
+       Unsplashs direkter Hotlink-Dienst eingestellt wurde) — bei Bedarf
+       einfach die url()-Pfade unten durch eigene Dateien ersetzen, z. B.
+       public/images/hockey/hero-01.jpg oder public/images/padel/hero-01.jpg.
+       Struktur/CSS bleiben dabei unverändert. -->
+  <section class="hero" id="top">
+    <div class="hero__media" aria-hidden="true">
+      <div class="hero__slide" style="background-image:url('public/images/padel/hero.jpg')"></div>
+      <div class="hero__slide" style="background-image:url('public/images/events/hero-slide-hockey-red.jpg')"></div>
+      <div class="hero__slide" style="background-image:url('public/images/soccer/hero-slide.jpg')"></div>
+      <div class="hero__slide" style="background-image:url('public/images/events/hero-slide-kids.jpg')"></div>
+      <div class="hero__slide" style="background-image:url('public/images/events/hero-slide-community.jpg')"></div>
+      <div class="hero__slide" style="background-image:url('public/images/events/hero-slide-soccer-indoor.jpg')"></div>
+      <div class="hero__slide" style="background-image:url('public/images/events/hero-slide-handshake.jpg')"></div>
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__content">
+      <h1 class="hero__title">More than sport.</h1>
+      <p class="hero__subline">Sport verbindet Menschen. Wir schaffen den Ort dafür.</p>
+      <a href="#sportwelten" class="btn btn--primary btn--lg">Jetzt starten</a>
+    </div>
+    <a href="#sportwelten" class="hero__scroll" aria-label="Nach unten scrollen">
+      <span>Scroll</span>
+      <span class="hero__scroll-line"></span>
+    </a>
+  </section>
+
+  <!-- ============================= UNSERE SPORTWELTEN ============================= -->
+  <!--
+    Playground Hannover ist die Dachmarke — Hockey Academy, Padel und
+    künftige Sportwelten (Soccer, Kids Club, ...) gehören darunter.
+    Datengetrieben über SPORTWELTEN in js/main.js: neue Sportwelt = neues
+    Objekt im Array, kein Umbau von HTML/CSS nötig.
+  -->
+  <section class="sportwelten" id="sportwelten">
+    <div class="container">
+      <p class="eyebrow reveal">Playground Hannover</p>
+      <h2 class="section-title reveal">Unsere Sportwelten.</h2>
+      <div class="sportwelten-grid" id="sportweltenGrid"><!-- wird per JS befüllt --></div>
+    </div>
+  </section>
+
+  <!-- ============================= WARUM PLAYGROUND? ============================= -->
+  <section class="why">
+    <div class="container">
+      <p class="eyebrow reveal">Warum Playground?</p>
+      <h2 class="section-title reveal">Menschen durch Sport verbinden.</h2>
+      <p class="section-text reveal">
+        Wir schaffen Gemeinschaft, hochwertige Angebote und gemeinsame
+        Erlebnisse, über einzelne Sportarten hinaus. Das ist die Idee
+        hinter Playground Hannover.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================= TERMINE & BUCHUNG ============================= -->
+  <!--
+    Verlinkt direkt auf die Eversports-Kalender der einzelnen Sportwelten
+    (Datenquelle: TERMINE_SPORTS in js/main.js). Sobald Soccer/Kids Club
+    ein eigenes Buchungswidget haben, dort einfach href austauschen.
+  -->
+  <section class="termine" id="termine">
+    <div class="container">
+      <p class="eyebrow reveal">Termine</p>
+      <h2 class="section-title reveal">Finde deinen Termin.</h2>
+      <p class="section-text reveal">Egal ob Hockey, Padel, Soccer oder Kids Club – hier findest du alle aktuellen Trainings, Events, Camps und Turniere.</p>
+      <div class="offer-grid" id="termineGrid" style="grid-template-columns:repeat(4,1fr); margin-top:var(--space-lg);"><!-- wird per JS befüllt --></div>
+    </div>
+  </section>
+
+  <!-- ============================= COMMUNITY ============================= -->
+  <section class="community" id="community">
+    <div class="container community__inner">
+      <div class="community__text">
+        <p class="eyebrow reveal">Community</p>
+        <h2 class="section-title reveal">Nichts mehr verpassen.</h2>
+        <div class="community__tabs reveal" id="communityTabs" role="tablist" aria-label="Community wählen"><!-- wird per JS befüllt --></div>
+        <p class="section-text reveal" id="communityText"><!-- wird per JS befüllt --></p>
+        <div class="community__actions reveal">
+          <a href="#" class="btn btn--outline" id="communityCta">WhatsApp-Community beitreten</a>
+        </div>
+      </div>
+      <!-- Eigene Grafiken: Hockey Academy Update &amp; Padel Newsletter. -->
+      <div class="community__media community__media--split" aria-hidden="true">
+        <div class="community__media-item" style="background-image:url('public/images/community/hockey-update.jpg')"></div>
+        <div class="community__media-item" style="background-image:url('public/images/community/padel-newsletter.jpg')"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= UNSERE GESCHICHTE (Teaser) ============================= -->
+  <section class="story-teaser">
+    <div class="container story-teaser__inner">
+      <!-- Eigenes Foto: entspannter Moment auf der Terrasse. -->
+      <div class="story-teaser__media" aria-hidden="true" style="background-image:url('public/images/events/story-teaser.jpg')"></div>
+      <div class="story-teaser__text">
+        <p class="eyebrow reveal">Über uns</p>
+        <h2 class="section-title reveal">Vom Soccerpark zur Sport-Eventplattform.</h2>
+        <p class="section-text reveal">
+          Wie aus dem Soccerpark Hannover &amp; Langenhagen die Marke
+          Playground Hannover wurde.
+        </p>
+        <a href="geschichte.html" class="btn btn--outline reveal" style="margin-top: var(--space-md);">Mehr erfahren</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <span class="nav__logo nav__logo--lg">
+        <span class="nav__logo-text">
+          <span class="nav__logo-main">Playground</span>
+          <span class="nav__logo-sub">Hannover</span>
+        </span>
+        <svg class="nav__logo-mark" viewBox="-2 0 26 22" fill="none" aria-hidden="true">
+          <rect x="0" y="2" width="2.6" height="17" fill="currentColor"/>
+          <rect x="9.2" y="2" width="2.6" height="17" fill="currentColor"/>
+          <rect x="18.4" y="2" width="2.6" height="17" fill="currentColor"/>
+          <rect x="-2" y="19" width="25" height="3" fill="currentColor"/>
+        </svg>
+      </span>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer__heading">Sportwelten</p>
+      <a href="hockey-academy.html">Hockey Academy</a>
+      <a href="padel.html">Padel</a>
+      <a href="soccer.html">Soccer</a>
+      <a href="kids-club.html">Kids Club</a>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer__heading">Playground</p>
+      <a href="#community">Community</a>
+      <a href="geschichte.html">Über uns</a>
+      <a href="geschichte.html#vision">Vision</a>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer__heading">Kontakt</p>
+      <a href="mailto:info@playgroundhannover.de">info@playgroundhannover.de</a>
+      <a href="#">Instagram</a>
+      <a href="#">WhatsApp-Community</a>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <span>© 2026 Playground Hannover</span>
+    <span>Impressum · Datenschutz</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
