@@ -88,28 +88,34 @@ const SPORTWELTEN = [
     text: 'Sessions, Camps, Events und On Tour: Training für jedes Level.',
     image: 'public/images/hockey/sportwelt-tile.jpg',
     href: 'hockey-academy.html',
-    status: 'active'
+    status: 'active',
+    visible: true
   },
   {
     title: 'Padel',
     text: 'Academy, Play und Events: Padel für jedes Level.',
     image: 'public/images/padel/sportwelt-tile-home.jpg',
     href: 'padel.html',
-    status: 'active'
+    status: 'active',
+    // Vorübergehend ausgeblendet, bis der Padel-Bereich fertig ist —
+    // einfach auf "true" setzen, um die Kachel wieder einzublenden.
+    visible: false
   },
   {
     title: 'Soccer',
     text: 'Aus dem Soccerpark entstanden, bald eine eigene Sportwelt bei Playground.',
     image: 'public/images/soccer/sportwelt-tile.jpg',
     href: 'soccer.html',
-    status: 'soon'
+    status: 'soon',
+    visible: false
   },
   {
     title: 'Kids Club',
     text: 'Bewegung, Spiel und Gemeinschaft für die Jüngsten bei Playground.',
     image: 'public/images/kids-club/sportwelt-tile.jpg',
     href: 'kids-club.html',
-    status: 'soon'
+    status: 'soon',
+    visible: false
   }
   // Weitere Sportwelten folgen nach demselben Muster — einfach ein
   // zusätzliches Objekt ergänzen.
@@ -118,7 +124,14 @@ const SPORTWELTEN = [
 function renderSportwelten(){
   const grid = document.getElementById('sportweltenGrid');
   if(!grid) return;
-  grid.innerHTML = SPORTWELTEN.map(sw => `
+  const visible = SPORTWELTEN.filter(sw => sw.visible !== false);
+  grid.style.gridTemplateColumns = `repeat(${Math.min(visible.length, 4)}, 1fr)`;
+  if(visible.length <= 2){
+    grid.style.maxWidth = '760px';
+    grid.style.marginLeft = 'auto';
+    grid.style.marginRight = 'auto';
+  }
+  grid.innerHTML = visible.map(sw => `
     <a class="sportwelt-card reveal ${sw.status === 'soon' ? 'sportwelt-card--soon' : ''}" href="${sw.href}">
       <div class="sportwelt-card__media" style="background-image:url('${sw.image}')"></div>
       <div class="sportwelt-card__overlay"></div>
@@ -148,35 +161,48 @@ const TERMINE_SPORTS = [
     text: 'Trainings, Camps, Goalie Sessions und Special Events.',
     linkLabel: 'Hockey-Termine ansehen',
     href: 'https://www.eversports.de/org/widget/affc895d-b2df-4783-901c-7377d5bb61d4?venueId=545ed9ef-71c6-4e71-b5dd-2a5a6d34a44f',
-    external: true
+    external: true,
+    visible: true
   },
   {
     title: 'Padel',
     text: 'After Work, King of the Court, Ladies Night, Turniere und Kurse.',
     linkLabel: 'Padel-Termine ansehen',
     href: 'https://www.eversports.de/org/widget/073f365b-d1d4-4c5b-bf31-d51050b4e7d3?venueId=545ed9ef-71c6-4e71-b5dd-2a5a6d34a44f',
-    external: true
+    external: true,
+    // Vorübergehend ausgeblendet — auf "true" setzen, sobald die Sportwelt
+    // wieder öffentlich sichtbar sein soll.
+    visible: false
   },
   {
     title: 'Soccer',
     text: 'Turniere und Fußball-Events.',
     linkLabel: 'Soccer-Termine ansehen',
     href: 'soccer.html',
-    external: false
+    external: false,
+    visible: false
   },
   {
     title: 'Kids Club',
     text: 'Wöchentliche Kurse und besondere Aktionen.',
     linkLabel: 'Kids Club-Termine ansehen',
     href: 'kids-club.html',
-    external: false
+    external: false,
+    visible: false
   }
 ];
 
 function renderTermine(){
   const grid = document.getElementById('termineGrid');
   if(!grid) return;
-  grid.innerHTML = TERMINE_SPORTS.map(t => `
+  const visible = TERMINE_SPORTS.filter(t => t.visible !== false);
+  grid.style.gridTemplateColumns = `repeat(${Math.min(visible.length, 4)}, 1fr)`;
+  if(visible.length <= 2){
+    grid.style.maxWidth = '420px';
+    grid.style.marginLeft = 'auto';
+    grid.style.marginRight = 'auto';
+  }
+  grid.innerHTML = visible.map(t => `
     <article class="offer-card reveal">
       <h3 class="offer-card__title">${t.title}</h3>
       <p class="offer-card__text">${t.text}</p>
@@ -192,24 +218,28 @@ function renderTermine(){
    --------------------------------------------------------------------- */
 const COMMUNITIES = [
   {
-    label: 'Kids Club',
-    text: 'Updates für Eltern: Termine, Camps und Neuigkeiten aus dem Kids Club.',
-    href: '#'
-  },
-  {
-    label: 'Soccer',
-    text: 'Neuigkeiten und Termine rund um unsere Soccer-Angebote.',
-    href: '#'
+    label: 'Hockey Academy',
+    text: 'Alles rund um Sessions, Camps, Events und On Tour der Hockey Academy, direkt aufs Handy.',
+    href: '#',
+    visible: true
   },
   {
     label: 'Padel',
     text: 'Alles rund um Academy, Play und Events der Padel-Community, direkt aufs Handy.',
-    href: '#'
+    href: '#',
+    visible: false
   },
   {
-    label: 'Hockey Academy',
-    text: 'Alles rund um Sessions, Camps, Events und On Tour der Hockey Academy, direkt aufs Handy.',
-    href: '#'
+    label: 'Soccer',
+    text: 'Neuigkeiten und Termine rund um unsere Soccer-Angebote.',
+    href: '#',
+    visible: false
+  },
+  {
+    label: 'Kids Club',
+    text: 'Updates für Eltern: Termine, Camps und Neuigkeiten aus dem Kids Club.',
+    href: '#',
+    visible: false
   }
 ];
 
@@ -219,14 +249,16 @@ function renderCommunity(){
   const cta  = document.getElementById('communityCta');
   if(!tabs || !text || !cta) return;
 
-  tabs.innerHTML = COMMUNITIES.map((c, i) => `
+  const visible = COMMUNITIES.filter(c => c.visible !== false);
+
+  tabs.innerHTML = visible.map((c, i) => `
     <button type="button" class="community__tab${i === 0 ? ' is-active' : ''}" data-index="${i}">${c.label}</button>
   `).join('');
 
   cta.textContent = 'WhatsApp-Community beitreten';
 
   function setActive(index){
-    const c = COMMUNITIES[index];
+    const c = visible[index];
     text.textContent = c.text;
     cta.setAttribute('href', c.href);
     tabs.querySelectorAll('.community__tab').forEach(btn => {
