@@ -334,8 +334,10 @@ section{ padding: var(--space-xl) 0; }
   background-repeat: no-repeat;
   opacity: 0;
   /* Dauer = Anzahl Slides x 5s, damit der Crossfade-Rhythmus unabhängig
-     von der Slide-Anzahl gleich bleibt (aktuell 8 Slides = 40s). */
-  animation: heroSlideshow 40s infinite;
+     von der Slide-Anzahl gleich bleibt (aktuell 3 Slides = 15s, solange
+     nur Hockey sichtbar ist — die nth-child(4)-(8)-Delays unten greifen
+     einfach nicht, wenn es keine entsprechenden Slides gibt). */
+  animation: heroSlideshow 15s infinite;
   filter: var(--photo-filter);
 }
 .hero__slide:nth-child(1){ animation-delay: 0s; }
